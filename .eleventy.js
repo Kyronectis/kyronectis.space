@@ -1,15 +1,35 @@
 import paths from "./config/paths.js";
 
-export default function (eleventyConfig) {
-	
-	eleventyConfig.addPassthroughCopy("assets");
+import { outputStylesheet } from "./config/sass.js";
+import { cachebustAssetUrl } from "./config/utils.js";
 
-	return {
-		markdownTemplateEngine: "njk",
-		dir: {
-		  input: paths.src,
-		  includes: "_includes",
-		  layouts: "_layouts",
-		},
-	}
-};
+export default function (eleventyConfig) {
+  // Turn off default log output
+  eleventyConfig.setQuietMode(true);
+
+  // Ignore the blog drafts directory if this is a production build
+  if (process.env.ENVIRONMENT === "prod") {
+    eleventyConfig.ignores.add(paths.src + "/blog/drafts/**/*");
+  }
+
+  //Assets
+  eleventyConfig.addPassthroughCopy(paths.srcAssets + "/img");
+  eleventyConfig.addPassthroughCopy(paths.srcAssets + "/fonts");
+  eleventyConfig.addPassthroughCopy(paths.srcAssets + "/js");
+
+  // Watch and compile Sass files
+  eleventyConfig.addWatchTarget(paths.srcAssets + "/**/*.scss");
+  eleventyConfig.on("beforeBuild", outputStylesheet);
+
+  //Filters
+  eleventyConfig.addFilter("cachebust", cachebustAssetUrl);
+
+  return {
+    markdownTemplateEngine: "njk",
+    dir: {
+      input: paths.src + "/website",
+      includes: "_includes",
+      layouts: "_layouts",
+    },
+  };
+}
