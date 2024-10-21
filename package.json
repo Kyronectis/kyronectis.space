@@ -1,0 +1,19 @@
+{
+  "name": "kyronectis.space",
+  "version": "0.0.5",
+  "description": "The website of the Noodle Collective.",
+  "author": "Kyronectis",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve",
+    "clean": "rm -rf _site",
+    "serve": "npm run clean && ENVIRONMENT=dev npx @11ty/eleventy --serve",
+    "build": "npm run clean && ENVIRONMENT=prod npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
