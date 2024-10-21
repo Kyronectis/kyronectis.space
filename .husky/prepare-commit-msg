@@ -1,3 +1,5 @@
+#This script will NOT run with VSCode's commit function.
+
 #!/bin/sh
 # gitmoji as a commit hook
 exec < /dev/tty
