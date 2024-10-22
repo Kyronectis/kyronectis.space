@@ -22,7 +22,7 @@ const outputStylesheet = function () {
   let css = result.css.toString();
 
   postcss([postcssPresetEnv(), postcssCssNano()])
-    .process(css, { from: "stylesheet.scss", to: "assets/scss/stylesheet.css" })
+    .process(css, { from: "stylesheet.scss", to: "assets/css/stylesheet.css" })
     .then(async (result) => {
       try {
         await mkdir(paths.outputSass, { recursive: true });
