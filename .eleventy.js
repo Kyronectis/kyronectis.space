@@ -4,10 +4,10 @@ import { outputStylesheet } from "./config/sass.js";
 import { cachebustAssetUrl } from "./config/utils.js";
 
 export default function (eleventyConfig) {
-  // Turn off default log output
+  //Turn off default log output
   eleventyConfig.setQuietMode(true);
 
-  // Ignore the blog drafts directory if this is a production build
+  //Ignore the blog drafts directory if this is a production build
   if (process.env.ENVIRONMENT === "prod") {
     eleventyConfig.ignores.add(paths.src + "/blog/drafts/**/*");
   }
@@ -17,7 +17,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(paths.srcAssets + "/fonts");
   eleventyConfig.addPassthroughCopy(paths.srcAssets + "/js");
 
-  // Watch and compile Sass files
+  //.htaccess
+  eleventyConfig.addPassthroughCopy(paths.src + "/website/.htaccess");
+
+  //Watch and compile Sass files
   eleventyConfig.addWatchTarget(paths.srcAssets + "/**/*.scss");
   eleventyConfig.on("beforeBuild", outputStylesheet);
 

@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {# Set title of page #}
+    {% set pageTitle %}
+        {{- (metadata.title or title) | safe | striptags -}}
+    {% endset %}
+    <title>{{ pageTitle }}</title>
+    
+    {% block head %}{% endblock %}
   </head>
   <body>
+    {% block main %}{% endblock %}
   </body>
 </html>
