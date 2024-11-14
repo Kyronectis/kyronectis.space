@@ -1,8 +1,28 @@
 .pageBody {
     font-family: var(--font-main);
     font-size: var(--size-0);
-    font-size: var(--size-0);
-    font-feature-settings: "onum";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    margin-top: 2em;
+}
+
+.contentWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: calc(100% - var(--side-margin));
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+* {
+    margin: 0;
 }

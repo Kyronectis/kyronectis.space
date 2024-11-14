@@ -1,40 +1,44 @@
 {
-  "name": "kyronectis.space",
-  "version": "0.0.8",
-  "description": "The website of the Noodle Collective.",
-  "author": "Jurgen 'kyronectis' Snoep <kyronectis@gmail.com>",
-  "homepage": "https://github.com/kyronectis/kyronectis.space#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kyronectis/kyronectis.space.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kyronectis/kyronectis.website/issues"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "start": "npm run serve",
-    "clean": "rm -rf _site",
-    "serve": "npm run clean && ENVIRONMENT=dev npx @11ty/eleventy --serve",
-    "build": "npm run clean && ENVIRONMENT=prod npx @11ty/eleventy && npm run lint:build",
-    "lint": "npx prettier --write --ignore-unknown . '!_site/**/*'",
-    "lint:build": "npx prettier --write --ignore-unknown --no-config --print-width=1000 --use-tabs=true '_site/**/*'",
-    "prepare": "husky"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "cssnano": "^7.0.6",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "luxon": "^3.5.0",
-    "postcss": "^8.4.47",
-    "postcss-preset-env": "^10.0.7",
-    "prettier": "^3.3.3",
-    "sass": "^1.80.3"
-  },
-  "lint-staged": {
-    "!_site/**/*": "prettier --write --ignore-unknown"
-  }
+    "name": "kyronectis.space",
+    "version": "0.0.8",
+    "description": "The website of the Noodle Collective.",
+    "author": "Jurgen 'kyronectis' Snoep <kyronectis@gmail.com>",
+    "homepage": "https://github.com/kyronectis/kyronectis.space#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kyronectis/kyronectis.space.git"
+    },
+    "bugs": {
+        "url": "https://github.com/kyronectis/kyronectis.website/issues"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run serve",
+        "clean": "rm -rf _site",
+        "serve": "npm run clean && ENVIRONMENT=dev npx @11ty/eleventy --serve",
+        "build": "npm run clean && ENVIRONMENT=prod npx @11ty/eleventy && npm run lint:build",
+        "lint": "npx prettier --write --ignore-unknown . '!_site/**/*'",
+        "lint:build": "npx prettier --write --ignore-unknown --no-config --print-width=1000 --use-tabs=true '_site/**/*'",
+        "prepare": "husky"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@11ty/eleventy": "^3.0.0",
+        "cssnano": "^7.0.6",
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.10",
+        "luxon": "^3.5.0",
+        "postcss": "^8.4.47",
+        "postcss-preset-env": "^10.0.7",
+        "prettier": "^3.3.3",
+        "sass": "^1.80.3"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4
+    },
+    "lint-staged": {
+        "!_site/**/*": "prettier --write --ignore-unknown"
+    }
 }

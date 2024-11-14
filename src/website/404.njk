@@ -10,10 +10,17 @@ eleventyExcludeFromCollections: true
   
 {% endblock %}
     
+{% block header %}
+  
+{% endblock %}
 
 {% block main %}
   <h1>Oh no! Looks like you got lost!</h1>
-  <p>Better go back to <a href="{{ '/' | url }}">the main page!</a></p>
+  <p>Better go back to <a href={{ '/' | url }}>the main page!</a></p>
+{% endblock %}
+
+{% block footer %}
+  
 {% endblock %}
     
 

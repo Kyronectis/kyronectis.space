@@ -1,0 +1,47 @@
+.homeNav {
+    font-size: var(--step-1);
+
+    list-style-type: none;
+
+    display: flex;
+}
+
+.homeNavButton {
+    position: relative;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--button-radius);
+    border-style: solid;
+    border-color: var(--color-button-border);
+    background-color: var(--color-background);
+
+    margin-left: var(--button-margin);
+    margin-right: var(--button-margin);
+
+    width: var(--button-width);
+    height: var(--button-height);
+
+    transform-style: preserve-3d;
+    transition: 0.3s;
+    z-index: 0;
+}
+
+.homeNavButton:hover {
+    border-color: var(--color-button-border-hover);
+
+    transform: scale(1.25);
+
+    z-index: 1;
+}
+
+.homeNavButtonText {
+    margin-left: var(--button-text-margin);
+    margin-right: var(--button-text-margin);
+}
+
+.topNav {
+    font-size: var(--step-1);
+}

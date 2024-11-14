@@ -1,19 +1,55 @@
+{%- set webfontUrl = '/assets/css/fonts.css' | url | cachebust -%}
+{%- set stylesUrl = '/assets/css/stylesheet.css' | url | cachebust -%}
+{%- set pageTitle = (metadata.title or title) | safe | striptags -%}
+  
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en-NL">
+    <head>
+        {# Metadata stuff #}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        {# Styles #}
+        <link rel="stylesheet" href="{{ webfontUrl }}">
+        <link rel="stylesheet" href="{{ stylesUrl }}">
 
-    {# Set title of page #}
-    {% set pageTitle %}
-        {{- (metadata.title or title) | safe | striptags -}}
-    {% endset %}
-    <title>{{ pageTitle }}</title>
+        {# Set title of page #}
+        <title>Kyronectis' space: {{ pageTitle }}</title>
     
-    {% block head %}{% endblock %}
-  </head>
-  <body>
-    {% block main %}{% endblock %}
-  </body>
+        {# Per-page head #}
+        {% block head %}{% endblock %}
+    </head>
+    <body class=pageBody>
+        {% block header %}
+            {# Top bar with a couple nav items #}
+            <div class=topNav>
+                <nav>
+                    {# Image home link #}
+                    <a href="/">
+                        <img src="src/assets/img/homeLink.png" alt="Link to homepage.">
+                        
+                    </a>
+                    
+                </nav>
+            </div>
+        {% endblock %}
+
+        {% block main %}
+            {# Default display for files without formatting #}
+            <div class=contentWrapper>
+
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
+            </div>
+
+        {% endblock %}
+
+        {% block footer %}
+            {# Quick links, webrings, buttons #}
+        {% endblock %}
+
+        {# Scripts #}
+        {% block script %}{% endblock %}
+    </body>
 </html>

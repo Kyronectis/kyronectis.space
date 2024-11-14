@@ -1,1 +1,33 @@
+---
+tags: homepageLinked
+homepageTitle: Home
+date: 2024-11-01
+# Date controls the order in which elements appear in the header list.
+# Doing it like this until we find a proper solution.
+title: The website of a couple funky creatures
+metadata:
+    description: This is the main page, this links through to the rest of the website.
+---
 
+{% extends "src/website/_layouts/layout.njk" %}
+
+{% block header %}
+    {# Banner with top bar #}
+    <div class=contentWrapper>
+        <ul class=homeNav>
+            {% for link in collections.homepageLinked %}
+            <li>
+                <a href={{ link.url | url }}>
+                    <div class=homeNavButton>
+                        <p class=homeNavButtonText>{{ link.data.homepageTitle }}</p>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block main %}
+    
+{% endblock %}

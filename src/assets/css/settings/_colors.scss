@@ -1,0 +1,14 @@
+.pageBody {
+    ---color-offwhite: #e7ecfe;
+    ---color-dark: #2f2933;
+    ---color-emphasis: #ffbe51;
+    ---color-emphasis-dark: #ffa44c;
+
+    --color-text: var(---color-offwhite);
+    --color-background: var(---color-dark);
+    --color-link: var(---color-emphasis);
+    --color-link-hover: var(---color-emphasis-dark);
+
+    --color-button-border: var(---color-emphasis);
+    --color-button-border-hover: var(---color-emphasis-dark);
+}
